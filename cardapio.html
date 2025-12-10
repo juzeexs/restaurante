@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lanches & Bebidas - Delivery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-burger"></i> Cardápio
+      </a>
+      <button class="navbar-toggler" id="menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-menu" id="navbar-menu">
+        <ul class="navbar-nav">
+          <li><a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Voltar</a></li>
+          <li><a class="nav-link" href="#cardapio"><i class="fas fa-utensils me-2"></i>Cardápio</a></li>
+          <li>
+            <a class="nav-link btn-cart" href="#" id="link-pedidos">
+              <i class="fas fa-shopping-cart me-2"></i>Pedidos (<span id="contador-pedidos">0</span>)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="cardapio" class="menu-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Nosso Cardápio</h2>
+        <p class="lead">Sabores incríveis que você vai amar! 😋</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://ogimg.infoglobo.com.br/rioshow/25033674-ea4-3ac/FT1086A/smash-burger.jpg" class="card-img" alt="X-Burger">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-hamburger text-warning me-2"></i>X-Burger</h5>
+            <p class="card-text">Pão, carne suculenta, queijo derretido, alface e tomate fresco.</p>
+            <p class="price">R$ 15,00</p>
+            <button class="btn btn-comprar w-100" data-item="X-Burger" data-preco="15.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <span class="promo-badge">🔥 Popular</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc5AE6ISXacmZb5Q0IT3YdCOjRDmqJK_eExBU9uKKbGuco09KroX7JVyw&s=10" class="card-img" alt="Cheeseburger">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-cheese text-warning me-2"></i>Cheeseburger</h5>
+            <p class="card-text">Pão, carne, queijo duplo e molho especial da casa.</p>
+            <p class="price">R$ 18,00</p>
+            <button class="btn btn-comprar w-100" data-item="Cheeseburger" data-preco="18.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://external-preview.redd.it/Q0w-a8gsUB6RQVvriRu6-JL-ESYRj1uyRcM46aOsOl4.jpg?width=1080&crop=smart&auto=webp&s=c95c64bc587cf1362185def71b0253c7b35e1727" class="card-img" alt="Hot Dog">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-hotdog text-warning me-2"></i>Hot Dog</h5>
+            <p class="card-text">Pão, salsicha, molho, batata palha e queijo.</p>
+            <p class="price">R$ 12,00</p>
+            <button class="btn btn-comprar w-100" data-item="Hot Dog" data-preco="12.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://static.itdg.com.br/images/1200-630/16976699d08c8e6cd92db601741e0038/353026-original.jpg" class="card-img" alt="Batata Frita">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-fire text-warning me-2"></i>Batata Frita</h5>
+            <p class="card-text">Porção crocante de batata frita com sal e molho.</p>
+            <p class="price">R$ 10,00</p>
+            <button class="btn btn-comprar w-100" data-item="Batata Frita" data-preco="10.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://st3.depositphotos.com/1063437/16407/i/450/depositphotos_164071266-stock-photo-bottles-and-cans-of-assorted.jpg" class="card-img" alt="Refrigerante">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-bottle-droplet text-warning me-2"></i>Refrigerante</h5>
+            <p class="card-text">Lata gelada (Coca, Guaraná, Fanta ou Sprite).</p>
+            <p class="price">R$ 6,00</p>
+            <button class="btn btn-comprar w-100" data-item="Refrigerante" data-preco="6.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <span class="promo-badge">⭐ Novidade</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBaAXWbaPCrBWtlfcc00dlSA68mgvLGIRnKEU3que76JL0osVVMAuSaTK-&s=10" class="card-img" alt="Milkshake">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-ice-cream text-warning me-2"></i>Milkshake</h5>
+            <p class="card-text">250ml - Chocolate, morango ou baunilha.</p>
+            <p class="price">R$ 14,00</p>
+            <button class="btn btn-comprar w-100" data-item="Milkshake" data-preco="14.00">
+              <i class="fas fa-cart-plus me-2"></i>Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+    <div id="modal-pagamento-content" class="modal-content hidden">
+      <div class="modal-header">
+        <h4><i class="fas fa-receipt me-2"></i>Finalizar Pedido</h4>
+        <button class="btn-close" onclick="fecharModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4">
+          <h5 class="mb-3">Resumo do Pedido:</h5>
+          <pre id="texto-pedido" class="pedido-resumo"></pre>
+        </div>
+        <h5 class="mb-3">Escolha a forma de pagamento:</h5>
+        <div class="payment-options">
+          <button class="btn-outline-success" id="btn-dinheiro">
+            <i class="fas fa-money-bill-wave fa-2x"></i>
+            <div>Dinheiro</div>
+          </button>
+          <button class="btn-outline-info" id="btn-pix">
+            <i class="fas fa-qrcode fa-2x"></i>
+            <div>Pix</div>
+          </button>
+        </div>
+        <div id="qrcode" class="qrcode-area"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
