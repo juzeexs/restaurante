@@ -1,10 +1,6 @@
-// ========================================
-// SISTEMA DE CARRINHO DE COMPRAS
-// ========================================
 const carrinho = [];
 let totalPedido = 0;
 
-// Atualizar contador de pedidos
 function atualizarContador() {
   const contador = document.getElementById('contador-pedidos');
   if (contador) {
@@ -12,17 +8,14 @@ function atualizarContador() {
   }
 }
 
-// Adicionar item ao carrinho
 function adicionarAoCarrinho(nome, preco) {
   carrinho.push({ nome, preco: parseFloat(preco) });
   totalPedido += parseFloat(preco);
   atualizarContador();
   
-  // Feedback visual
   mostrarNotificacao(`${nome} adicionado ao carrinho!`, 'success');
 }
 
-// Mostrar notificação
 function mostrarNotificacao(mensagem, tipo = 'info') {
   const notif = document.createElement('div');
   notif.className = `notificacao notif-${tipo}`;
@@ -51,9 +44,6 @@ function mostrarNotificacao(mensagem, tipo = 'info') {
   }, 2500);
 }
 
-// ========================================
-// MODAL DE PEDIDOS
-// ========================================
 function abrirModalPedidos() {
   if (carrinho.length === 0) {
     mostrarNotificacao('Seu carrinho está vazio!', 'warning');
@@ -63,7 +53,6 @@ function abrirModalPedidos() {
   const modalOverlay = document.getElementById('modal-overlay');
   if (!modalOverlay) return;
 
-  // Gerar resumo do pedido
   let resumo = '═══════════════════════════\n';
   resumo += '     RESUMO DO PEDIDO\n';
   resumo += '═══════════════════════════\n\n';
@@ -77,7 +66,6 @@ function abrirModalPedidos() {
   resumo += `TOTAL: R$ ${totalPedido.toFixed(2)}\n`;
   resumo += '═══════════════════════════';
 
-  // Criar conteúdo do modal
   modalOverlay.innerHTML = `
     <div class="modal-content">
       <div class="modal-header">
@@ -122,7 +110,6 @@ function fecharModal() {
   }
 }
 
-// Selecionar forma de pagamento
 function selecionarPagamento(tipo) {
   const qrcodeContainer = document.getElementById('qrcode-container');
   const qrcodeDiv = document.getElementById('qrcode');
@@ -147,7 +134,6 @@ function selecionarPagamento(tipo) {
   }
 }
 
-// Finalizar pedido
 function finalizarPedido(formaPagamento) {
   mostrarNotificacao(`Pedido confirmado! Pagamento: ${formaPagamento}`, 'success');
   
@@ -159,9 +145,6 @@ function finalizarPedido(formaPagamento) {
   }, 2000);
 }
 
-// ========================================
-// CARROSSEL DE IMAGENS
-// ========================================
 function inicializarCarrossel() {
   const track = document.getElementById('carousel-track');
   const btnPrev = document.getElementById('prevBtn');
@@ -185,7 +168,6 @@ function inicializarCarrossel() {
       currentIndex++;
       updateCarousel();
       
-      // Quando passar da última, volta pra primeira sem transição visível
       if (currentIndex >= totalSlides) {
         setTimeout(() => {
           currentIndex = 0;
@@ -205,7 +187,6 @@ function inicializarCarrossel() {
     updateCarousel();
     resetAutoPlay();
     
-    // Loop infinito ao clicar no botão next
     if (currentIndex >= totalSlides) {
       setTimeout(() => {
         currentIndex = 0;
@@ -215,7 +196,6 @@ function inicializarCarrossel() {
   });
   
   btnPrev.addEventListener('click', () => {
-    // Se estiver na primeira imagem, vai para a última
     if (currentIndex === 0) {
       currentIndex = totalSlides;
       updateCarousel(false);
@@ -233,15 +213,11 @@ function inicializarCarrossel() {
   startAutoPlay();
 }
 
-// ========================================
-// MENU MOBILE
-// ========================================
 function inicializarMenuMobile() {
   const menuToggle = document.getElementById('menu-toggle');
   const navbarMenu = document.getElementById('navbar-menu');
   
   if (menuToggle && navbarMenu) {
-    // Toggle do menu
     menuToggle.addEventListener('click', () => {
       navbarMenu.classList.toggle('active');
       const icon = menuToggle.querySelector('i');
@@ -249,7 +225,6 @@ function inicializarMenuMobile() {
       icon.classList.toggle('fa-times');
     });
     
-    // Fechar menu ao clicar nos links
     const navLinks = navbarMenu.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -258,7 +233,6 @@ function inicializarMenuMobile() {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
         
-        // Rolar para o topo suavemente
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
@@ -268,9 +242,6 @@ function inicializarMenuMobile() {
   }
 }
 
-// ========================================
-// BUSCA DE PRODUTOS
-// ========================================
 function inicializarBusca() {
   const inputPesquisa = document.getElementById('input-pesquisa');
   const listaProdutos = document.getElementById('lista-produtos');
@@ -294,9 +265,6 @@ function inicializarBusca() {
   });
 }
 
-// ========================================
-// FORMULÁRIO DE CONTATO
-// ========================================
 function inicializarFormularioContato() {
   const formContato = document.getElementById('form-contato');
   
@@ -309,11 +277,7 @@ function inicializarFormularioContato() {
   }
 }
 
-// ========================================
-// EVENT LISTENERS
-// ========================================
 function inicializarEventListeners() {
-  // Botões de adicionar ao carrinho
   document.addEventListener('click', (e) => {
     if (e.target.closest('.btn-comprar')) {
       const btn = e.target.closest('.btn-comprar');
@@ -323,7 +287,6 @@ function inicializarEventListeners() {
     }
   });
   
-  // Link de pedidos
   const linkPedidos = document.getElementById('link-pedidos');
   if (linkPedidos) {
     linkPedidos.addEventListener('click', (e) => {
@@ -332,7 +295,6 @@ function inicializarEventListeners() {
     });
   }
   
-  // Fechar modal ao clicar fora
   const modalOverlay = document.getElementById('modal-overlay');
   if (modalOverlay) {
     modalOverlay.addEventListener('click', (e) => {
@@ -343,9 +305,6 @@ function inicializarEventListeners() {
   }
 }
 
-// ========================================
-// ANIMAÇÕES CSS ADICIONAIS
-// ========================================
 function adicionarAnimacoes() {
   const style = document.createElement('style');
   style.textContent = `
@@ -390,9 +349,6 @@ function adicionarAnimacoes() {
   document.head.appendChild(style);
 }
 
-// ========================================
-// INICIALIZAÇÃO
-// ========================================
 document.addEventListener('DOMContentLoaded', () => {
   inicializarCarrossel();
   inicializarMenuMobile();
